@@ -1,1 +1,14 @@
-﻿Hello world
+﻿@model IEnumerable<MusicLibrary.Models.ArtistListViewModel>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Number of albums</th>
+    </tr>
+    @foreach (var artist in Model)
+    {
+        <tr>
+            <td>@artist.Name</td>
+            <td>@artist.AlbumCount</td>
+        </tr>
+    }
+</table>

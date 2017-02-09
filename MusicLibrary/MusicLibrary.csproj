@@ -114,7 +114,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Migrations\201702091720296_AlbumCount.cs" />
+    <Compile Include="Migrations\201702091720296_AlbumCount.Designer.cs">
+      <DependentUpon>201702091720296_AlbumCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArtistListViewModel.cs" />
     <Compile Include="Services\ArtistsService.cs" />
     <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="DAL\Album.cs" />
@@ -146,11 +152,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702091608592_Artists-Albums.resx">
       <DependentUpon>201702091608592_Artists-Albums.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091720296_AlbumCount.resx">
+      <DependentUpon>201702091720296_AlbumCount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

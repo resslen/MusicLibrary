@@ -9,5 +9,6 @@ namespace MusicLibrary.DAL
         public string Description { get; set; }
         public virtual IList<Album> Albums{ get; set; }
         public string LastFmUrl { get; set; }
+        public int AlbumCount { get; set; }
     }
 }

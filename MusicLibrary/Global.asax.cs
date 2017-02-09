@@ -11,6 +11,7 @@ namespace MusicLibrary
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AutofacConfig.Configure();
+            AutomapperConfig.Configure();
         }
     }
 }

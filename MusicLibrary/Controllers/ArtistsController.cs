@@ -15,7 +15,8 @@ namespace MusicLibrary.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Artist list";
-            return View();
+            var model = _artistsService.AllArtists();
+            return View(model);
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using MusicLibrary.DAL;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AutoMapper;
+using MusicLibrary.DAL;
+using MusicLibrary.Models;
 
 namespace MusicLibrary.Services
 {
@@ -9,6 +13,12 @@ namespace MusicLibrary.Services
         public ArtistsService(LibraryContext context)
         {
             _context = context;
+        }
+
+        public IEnumerable<ArtistListViewModel> AllArtists()
+        {
+            var artists = _context.Artists.ToList();
+            return Mapper.Map<List<ArtistListViewModel>>(artists);
         }
     }
 }
