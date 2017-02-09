@@ -2,6 +2,7 @@
 using System.Linq;
 using AutoMapper;
 using MusicLibrary.DAL;
+using MusicLibrary.Exceptions;
 using MusicLibrary.Models;
 
 namespace MusicLibrary.Services
@@ -19,6 +20,16 @@ namespace MusicLibrary.Services
         {
             var artists = _context.Artists.ToList();
             return Mapper.Map<List<ArtistListViewModel>>(artists);
+        }
+
+        public ArtistViewModel ArtistById(int id)
+        {
+            var artist = _context.Artists.Find(id);
+            if (artist == null)
+            {
+                throw new NotFountException();
+            }
+            return Mapper.Map<ArtistViewModel>(artist);
         }
     }
 }

@@ -18,5 +18,12 @@ namespace MusicLibrary.Controllers
             var model = _artistsService.AllArtists();
             return View(model);
         }
+
+        public ActionResult Details(int id)
+        {
+            var model = _artistsService.ArtistById(id);
+            ViewBag.Title = model.Name;
+            return View(model);
+        }
     }
 }

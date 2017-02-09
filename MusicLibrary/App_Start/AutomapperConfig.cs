@@ -14,6 +14,7 @@ namespace MusicLibrary.App_Start
         private static void Register(IMapperConfigurationExpression config)
         {
             config.CreateMap<Artist, ArtistListViewModel>();
+            config.CreateMap<Artist, ArtistViewModel>();
         }
     }
 }

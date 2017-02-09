@@ -1,0 +1,36 @@
+﻿@model MusicLibrary.Models.ArtistViewModel
+<table>
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <th>Album count</th>
+        <td>@Model.AlbumCount</td>
+    </tr>
+    <tr>
+        <th>Last.fm link</th>
+        <td><a href="@Model.LastFmUrl">@Model.LastFmUrl</a></td>
+    </tr>
+</table>
+
+<h1>Albums</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var album in Model.Albums)
+    {
+        <tr>
+            <td>@album.Title</td>
+            <td>@album.Year</td>
+            <td><a>Details</a></td>
+        </tr>
+    }
+</table>

@@ -116,11 +116,17 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Exceptions\NotFountException.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.Designer.cs">
       <DependentUpon>201702091720296_AlbumCount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702091839562_Album-Year.cs" />
+    <Compile Include="Migrations\201702091839562_Album-Year.Designer.cs">
+      <DependentUpon>201702091839562_Album-Year.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ArtistListViewModel.cs" />
+    <Compile Include="Models\ArtistViewModel.cs" />
     <Compile Include="Services\ArtistsService.cs" />
     <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="DAL\Album.cs" />
@@ -143,6 +149,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Artists\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Artists\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702091720296_AlbumCount.resx">
       <DependentUpon>201702091720296_AlbumCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702091839562_Album-Year.resx">
+      <DependentUpon>201702091839562_Album-Year.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

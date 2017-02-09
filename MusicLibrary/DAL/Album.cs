@@ -8,5 +8,6 @@
         public Artist Author { get; set; }
         public string Tracklist { get; set; }
         public string LastFmUrl { get; set; }
+        public int Year { get; set; }
     }
 }
