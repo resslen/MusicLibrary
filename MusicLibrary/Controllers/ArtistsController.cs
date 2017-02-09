@@ -5,7 +5,7 @@ namespace MusicLibrary.Controllers
 {
     public class ArtistsController : Controller
     {
-        private IArtistsService _artistsService;
+        private readonly IArtistsService _artistsService;
 
         public ArtistsController(IArtistsService artistsService)
         {

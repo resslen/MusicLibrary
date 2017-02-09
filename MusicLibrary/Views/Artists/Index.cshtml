@@ -3,12 +3,14 @@
     <tr>
         <th>Name</th>
         <th>Number of albums</th>
+        <th>Details</th>
     </tr>
     @foreach (var artist in Model)
     {
         <tr>
-            <td>@artist.Name</td>
+            <td title="@artist.Description">@artist.Name</td>
             <td>@artist.AlbumCount</td>
+            <td>@Html.ActionLink("Details", "Details", new { Id = artist.Id })</td>
         </tr>
     }
 </table>
