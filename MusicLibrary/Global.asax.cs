@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using MusicLibrary.App_Start;
 
 namespace MusicLibrary
 {
@@ -9,6 +10,7 @@ namespace MusicLibrary
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AutofacConfig.Configure();
         }
     }
 }
