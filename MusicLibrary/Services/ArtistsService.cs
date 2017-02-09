@@ -35,5 +35,12 @@ namespace MusicLibrary.Services
             }
             return Mapper.Map<ArtistViewModel>(artist);
         }
+
+        public void DeleteById(int id)
+        {
+            var artist = _context.Artists.Find(id);
+            _context.Artists.Remove(artist);
+            _context.SaveChanges();
+        }
     }
 }
