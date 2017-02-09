@@ -114,9 +114,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="DAL\Album.cs" />
+    <Compile Include="DAL\Artist.cs" />
     <Compile Include="DAL\LibraryContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702091608592_Artists-Albums.cs" />
+    <Compile Include="Migrations\201702091608592_Artists-Albums.Designer.cs">
+      <DependentUpon>201702091608592_Artists-Albums.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,6 +141,11 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201702091608592_Artists-Albums.resx">
+      <DependentUpon>201702091608592_Artists-Albums.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
