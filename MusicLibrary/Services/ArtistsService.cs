@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
 using MusicLibrary.DAL;
@@ -9,7 +10,7 @@ namespace MusicLibrary.Services
 {
     public class ArtistsService : IArtistsService
     {
-        private LibraryContext _context;
+        private readonly LibraryContext _context;
 
         public ArtistsService(LibraryContext context)
         {
@@ -24,7 +25,10 @@ namespace MusicLibrary.Services
 
         public ArtistViewModel ArtistById(int id)
         {
-            var artist = _context.Artists.Find(id);
+            var artist = _context.Artists
+                .Include(x => x.Albums)
+                .SingleOrDefault(x => x.Id == id);
+                
             if (artist == null)
             {
                 throw new NotFountException();
