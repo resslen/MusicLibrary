@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using MusicLibrary.DAL;
+using MusicLibrary.Services;
 
 namespace MusicLibrary.App_Start
 {
@@ -17,7 +19,8 @@ namespace MusicLibrary.App_Start
 
         private static void Register(ContainerBuilder builder)
         {
-            
+            builder.RegisterType<LibraryContext>().AsSelf();
+            builder.RegisterType<ArtistsService>().As<IArtistsService>();
         }
     }
 }
