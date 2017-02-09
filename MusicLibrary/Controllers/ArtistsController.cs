@@ -1,9 +1,11 @@
 ﻿using System.Web.Mvc;
+using MusicLibrary.Filters;
 using MusicLibrary.Models;
 using MusicLibrary.Services;
 
 namespace MusicLibrary.Controllers
 {
+    [HandleNotFoundException]
     public class ArtistsController : Controller
     {
         private readonly IArtistsService _artistsService;

@@ -2,7 +2,7 @@
 
 namespace MusicLibrary.Exceptions
 {
-    public class NotFountException : Exception
+    public class NotFoundException : Exception
     {
     }
 }

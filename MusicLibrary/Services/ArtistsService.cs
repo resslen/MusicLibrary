@@ -31,7 +31,7 @@ namespace MusicLibrary.Services
                 
             if (artist == null)
             {
-                throw new NotFountException();
+                throw new NotFoundException();
             }
             return Mapper.Map<ArtistViewModel>(artist);
         }

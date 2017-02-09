@@ -116,7 +116,8 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Exceptions\NotFountException.cs" />
+    <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Filters\HandleNotFoundException.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.Designer.cs">
       <DependentUpon>201702091720296_AlbumCount.cs</DependentUpon>
