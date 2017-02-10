@@ -23,7 +23,5 @@
             <td><a href="@Model.Album.LastFmUrl">@Model.Album.LastFmUrl</a></td>
         </tr>
     </table>
-    @Html.ActionLink("Back", "Details", new { Id = Model.Album.Id }) <br>
-    <input type="submit" name="save" value="Save" class="btn btn-default" />
-    @(ViewBag.Errors ?? "")
+    @Html.Partial("SubmitBar", Model)
 }

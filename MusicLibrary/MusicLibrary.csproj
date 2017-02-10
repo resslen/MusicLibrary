@@ -119,6 +119,7 @@
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Filters\HandleNotFoundException.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.Designer.cs">
       <DependentUpon>201702091720296_AlbumCount.cs</DependentUpon>
@@ -170,6 +171,7 @@
     <Content Include="Views\Albums\Add.cshtml" />
     <Content Include="Views\Albums\Delete.cshtml" />
     <Content Include="Views\Albums\Edit.cshtml" />
+    <Content Include="Views\Shared\SubmitBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

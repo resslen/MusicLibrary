@@ -1,6 +1,11 @@
-﻿@model IEnumerable<MusicLibrary.Models.ArtistListViewModel>
-    @Html.ActionLink("Add new", "Add")
-<table>
+﻿@using MusicLibrary.Helpers
+@model IEnumerable<MusicLibrary.Models.ArtistListViewModel>
+<div class="card">
+    <div class="card-content">
+        @Html.ActionButton("Add new", "Add")
+    </div>
+</div>
+<table class="striped responsive-table">
     <tr>
         <th>Name</th>
         <th>Number of albums</th>

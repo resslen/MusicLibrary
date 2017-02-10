@@ -1,0 +1,9 @@
+﻿@using MusicLibrary.Helpers
+
+<div class="card">
+    <div class="card-content">
+        @Html.ActionButton("Back", "Details", new { Id = Model.Id })
+        <input type="submit" name="ok" value="Ok" class="waves-effect waves-light btn" />
+        @(ViewBag.Errors ?? "")
+    </div>
+</div>

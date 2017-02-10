@@ -1,21 +1,28 @@
-﻿@model IEnumerable<MusicLibrary.Models.AlbumListViewModel>
-@Html.ActionLink("Add new", "Add")
-<table>
+﻿@using MusicLibrary.Helpers
+@model IEnumerable<MusicLibrary.Models.AlbumListViewModel>
+<div class="card">
+    <div class="card-content">
+        @Html.ActionButton("Add new", "Add")
+    </div>
+</div>
+<table class="responsive-table striped">
     <tr>
         <th>Title</th>
         <th>Author</th>
         <th>Year</th>
         <th>Details</th>
+        <th>Edit</th>
         <th>Delete</th>
     </tr>
     @foreach (var album in Model)
     {
         <tr>
             <td>@album.Title</td>
-            <td>@Html.ActionLink(album.Author, "Details", "Artists", new { Id = album.AuthorId }, null)</td>
+            <td>@Html.ActionLink(album.Author, "Details", "Artists", new { Id = album.AuthorId })</td>
             <td>@album.Year</td>
-            <td>@Html.ActionLink("Details", "Details", new { Id = album.Id })</td>
-            <td>@Html.ActionLink("Delete", "Delete", new {Id = album.Id})</td>
+            <td>@Html.ActionButton("Details", "Details", new { Id = album.Id })</td>
+            <td>@Html.ActionButton("Edit", "Edit", new { Id = album.Id })</td>
+            <td>@Html.ActionButton("Delete", "Delete", new {Id = album.Id})</td>
         </tr>
     }
 </table>
