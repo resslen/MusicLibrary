@@ -19,7 +19,7 @@ namespace MusicLibrary.Controllers
             _helperService = helperService;
         }
 
-        [HttpGet]
+        [HttpGet, Route("")]
         public ActionResult Index()
         {
             ViewBag.Title = "Artist list";

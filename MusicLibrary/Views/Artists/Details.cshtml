@@ -17,8 +17,9 @@
         <td><a href="@Model.LastFmUrl">@Model.LastFmUrl</a></td>
     </tr>
 </table>
-
-@Html.ActionLink("Detele", "Delete", new { Id = Model.Id })
+@Html.ActionLink("Back", "Index")
+@Html.ActionLink("Edit", "Edit", new { Id = Model.Id })
+@Html.ActionLink("Delete", "Delete", new { Id = Model.Id })
 
 <h1>Albums</h1>
 <table>

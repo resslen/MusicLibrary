@@ -1,6 +1,7 @@
 ﻿@model MusicLibrary.Models.ArtistViewModel
 @Html.Partial("Details", Model)
 Do you really want to delete artist with all albums?
+@Html.ActionLink("Back", "Details", new { Id = Model.Id }) <br>
 @using (Html.BeginForm())
 {
     <input type="submit" name="delete" value="Delete" class="btn btn-default" />

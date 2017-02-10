@@ -15,6 +15,7 @@
             <td><input name="lastFmUrl" type="text" value="@Model.LastFmUrl" /></td>
         </tr>
     </table>
+    @Html.ActionLink("Back", "Details", new {Id = Model.Id}) <br>
     <input type="submit" name="save" value="Save" class="btn btn-default" />
     @(ViewBag.Errors ?? "")
 }

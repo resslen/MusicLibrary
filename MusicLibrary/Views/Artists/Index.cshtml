@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<MusicLibrary.Models.ArtistListViewModel>
+    @Html.ActionLink("Add new", "Add")
 <table>
     <tr>
         <th>Name</th>
         <th>Number of albums</th>
         <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     @foreach (var artist in Model)
     {
@@ -11,6 +14,8 @@
             <td title="@artist.Description">@artist.Name</td>
             <td>@artist.AlbumCount</td>
             <td>@Html.ActionLink("Details", "Details", new { Id = artist.Id })</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { Id = artist.Id })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { Id = artist.Id })</td>
         </tr>
     }
 </table>
