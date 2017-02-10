@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Models\ArtistListViewModel.cs" />
     <Compile Include="Models\ArtistViewModel.cs" />
+    <Compile Include="Models\NewArtistViewModel.cs" />
     <Compile Include="Services\ArtistsService.cs" />
     <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="DAL\Album.cs" />
@@ -142,7 +143,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\HelperService.cs" />
     <Compile Include="Services\IArtistsService.cs" />
+    <Compile Include="Services\IHelperService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -152,6 +155,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Artists\Details.cshtml" />
     <Content Include="Views\Artists\Delete.cshtml" />
+    <Content Include="Views\Artists\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

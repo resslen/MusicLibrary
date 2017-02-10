@@ -8,5 +8,6 @@ namespace MusicLibrary.Services
         IEnumerable<ArtistListViewModel> AllArtists();
         ArtistViewModel ArtistById(int id);
         void DeleteById(int id);
+        int AddArtist(NewArtistViewModel model);
     }
 }

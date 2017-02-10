@@ -5,17 +5,20 @@ using MusicLibrary.Services;
 
 namespace MusicLibrary.Controllers
 {
+    [RoutePrefix("artists")]
     [HandleNotFoundException]
     public class ArtistsController : Controller
     {
         private readonly IArtistsService _artistsService;
+        private readonly IHelperService _helperService;
 
-        public ArtistsController(IArtistsService artistsService)
+        public ArtistsController(IArtistsService artistsService, IHelperService helperService)
         {
             _artistsService = artistsService;
+            _helperService = helperService;
         }
 
-        [Route("artists")]
+        [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Title = "Artist list";
@@ -23,7 +26,7 @@ namespace MusicLibrary.Controllers
             return View(model);
         }
 
-        [Route("artists/{id:int}")]
+        [HttpGet, Route("{id:int}")]
         public ActionResult Details(int id)
         {
             var model = _artistsService.ArtistById(id);
@@ -31,18 +34,37 @@ namespace MusicLibrary.Controllers
             return View(model);
         }
 
-        [HttpGet, Route("artists/{id:int}/delete")]
+        [HttpGet, Route("{id:int}/delete")]
         public ActionResult Delete(int id)
         {
             var model = _artistsService.ArtistById(id);
+            ViewBag.Title = model.Name;
             return View(model);
         }
 
-        [HttpPost, Route("artists/{id:int}/delete")]
+        [HttpPost, Route("{id:int}/delete")]
         public ActionResult DeleteConfirmed(int id)
         {
             _artistsService.DeleteById(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet, Route("add")]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("add")]
+        public ActionResult AddConfirm(NewArtistViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Errors = _helperService.ModelErrorsToString(ModelState);
+                return View("Add");
+            }
+            var id = _artistsService.AddArtist(model);
+            return RedirectToAction("Details", new {Id = id });
         }
     }
 }

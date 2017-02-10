@@ -42,5 +42,13 @@ namespace MusicLibrary.Services
             _context.Artists.Remove(artist);
             _context.SaveChanges();
         }
+
+        public int AddArtist(NewArtistViewModel model)
+        {
+            var artist = Mapper.Map<Artist>(model);
+            _context.Artists.Add(artist);
+            _context.SaveChanges();
+            return artist.Id;
+        }
     }
 }

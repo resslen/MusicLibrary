@@ -15,6 +15,7 @@ namespace MusicLibrary.App_Start
         {
             config.CreateMap<Artist, ArtistListViewModel>();
             config.CreateMap<Artist, ArtistViewModel>();
+            config.CreateMap<NewArtistViewModel, Artist>();
         }
     }
 }
