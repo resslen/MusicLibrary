@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MusicLibrary.Models.AlbumListViewModel>
+<!--Html.ActionLink("Add new", "Add")-->
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var album in Model)
+    {
+        <tr>
+            <td>@album.Title</td>
+            <td>@Html.ActionLink(album.Author, "Details", "Artists", new { Id = album.AuthorId }, null)</td>
+            <td>@album.Year</td>
+            <td>@Html.ActionLink("Details", "Details", new {Id = album.Id})</td>
+        </tr>
+    }
+</table>

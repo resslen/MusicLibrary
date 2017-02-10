@@ -22,7 +22,7 @@ namespace MusicLibrary.Controllers
         [HttpGet, Route("")]
         public ActionResult Index()
         {
-            ViewBag.Title = "Artist list";
+            ViewBag.Title = "Author list";
             var model = _artistsService.AllArtists();
             return View(model);
         }

@@ -16,6 +16,10 @@ namespace MusicLibrary.App_Start
             config.CreateMap<Artist, ArtistListViewModel>();
             config.CreateMap<Artist, ArtistViewModel>();
             config.CreateMap<NewArtistViewModel, Artist>();
+            config.CreateMap<Album, AlbumListViewModel>()
+                .ForMember(x => x.Author, conf => conf.MapFrom(album => album.Author.Name));
+            config.CreateMap<Album, AlbumViewModel>()
+                .ForMember(x => x.Author, conf => conf.MapFrom(album => album.Author.Name));
         }
     }
 }

@@ -127,9 +127,12 @@
     <Compile Include="Migrations\201702091839562_Album-Year.Designer.cs">
       <DependentUpon>201702091839562_Album-Year.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AlbumListViewModel.cs" />
+    <Compile Include="Models\AlbumViewModel.cs" />
     <Compile Include="Models\ArtistListViewModel.cs" />
     <Compile Include="Models\ArtistViewModel.cs" />
     <Compile Include="Models\NewArtistViewModel.cs" />
+    <Compile Include="Services\AlbumsService.cs" />
     <Compile Include="Services\ArtistsService.cs" />
     <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="DAL\Album.cs" />
@@ -145,6 +148,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HelperService.cs" />
+    <Compile Include="Services\IAlbumsService.cs" />
     <Compile Include="Services\IArtistsService.cs" />
     <Compile Include="Services\IHelperService.cs" />
   </ItemGroup>
@@ -158,6 +162,8 @@
     <Content Include="Views\Artists\Delete.cshtml" />
     <Content Include="Views\Artists\Add.cshtml" />
     <Content Include="Views\Artists\Edit.cshtml" />
+    <Content Include="Views\Albums\Index.cshtml" />
+    <Content Include="Views\Albums\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -167,7 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Albums\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702091608592_Artists-Albums.resx">
