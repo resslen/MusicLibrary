@@ -72,7 +72,7 @@ namespace MusicLibrary.Controllers
         public ActionResult Edit(int id)
         {
             var model = _artistsService.ArtistById(id);
-            return View(model);
+            return View("Edit", model);
         }
 
         [HttpPost, Route("{id:int}/edit")]
@@ -81,7 +81,7 @@ namespace MusicLibrary.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.Errors = _helperService.ModelErrorsToString(ModelState);
-                return RedirectToAction("Edit", new {Id = id});
+                return Edit(id);
             }
             _artistsService.UpdateArtist(id, model);
             return RedirectToAction("Details", new {Id = id});
