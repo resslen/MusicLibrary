@@ -9,5 +9,6 @@ namespace MusicLibrary.Services
         ArtistViewModel ArtistById(int id);
         void DeleteById(int id);
         int AddArtist(NewArtistViewModel model);
+        void UpdateArtist(int id, NewArtistViewModel model);
     }
 }

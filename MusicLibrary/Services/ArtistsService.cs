@@ -17,6 +17,16 @@ namespace MusicLibrary.Services
             _context = context;
         }
 
+        private Artist Find(int id)
+        {
+            var artist = _context.Artists.Find(id);
+            if (artist == null)
+            {
+                throw new NotFoundException();
+            }
+            return artist;
+        }
+
         public IEnumerable<ArtistListViewModel> AllArtists()
         {
             var artists = _context.Artists.ToList();
@@ -38,7 +48,7 @@ namespace MusicLibrary.Services
 
         public void DeleteById(int id)
         {
-            var artist = _context.Artists.Find(id);
+            var artist = Find(id);
             _context.Artists.Remove(artist);
             _context.SaveChanges();
         }
@@ -49,6 +59,13 @@ namespace MusicLibrary.Services
             _context.Artists.Add(artist);
             _context.SaveChanges();
             return artist.Id;
+        }
+
+        public void UpdateArtist(int id, NewArtistViewModel model)
+        {
+            var artist = Find(id);
+            Mapper.Map(model, artist);
+            _context.SaveChanges();
         }
     }
 }

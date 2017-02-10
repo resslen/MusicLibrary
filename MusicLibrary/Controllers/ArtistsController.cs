@@ -5,6 +5,7 @@ using MusicLibrary.Services;
 
 namespace MusicLibrary.Controllers
 {
+    [ValidateInput(false)]
     [RoutePrefix("artists")]
     [HandleNotFoundException]
     public class ArtistsController : Controller
@@ -64,7 +65,26 @@ namespace MusicLibrary.Controllers
                 return View("Add");
             }
             var id = _artistsService.AddArtist(model);
-            return RedirectToAction("Details", new {Id = id });
+            return RedirectToAction("Details", new { Id = id });
+        }
+
+        [HttpGet, Route("{id:int}/edit")]
+        public ActionResult Edit(int id)
+        {
+            var model = _artistsService.ArtistById(id);
+            return View(model);
+        }
+
+        [HttpPost, Route("{id:int}/edit")]
+        public ActionResult EditSave(int id, NewArtistViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Errors = _helperService.ModelErrorsToString(ModelState);
+                return RedirectToAction("Edit", new {Id = id});
+            }
+            _artistsService.UpdateArtist(id, model);
+            return RedirectToAction("Details", new {Id = id});
         }
     }
 }
