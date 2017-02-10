@@ -132,6 +132,7 @@
     <Compile Include="Models\AlbumViewModel.cs" />
     <Compile Include="Models\ArtistListViewModel.cs" />
     <Compile Include="Models\ArtistViewModel.cs" />
+    <Compile Include="Models\EditAlbumViewModel.cs" />
     <Compile Include="Models\NewAlbumViewModel.cs" />
     <Compile Include="Models\NewArtistViewModel.cs" />
     <Compile Include="Services\AlbumsService.cs" />
@@ -168,6 +169,7 @@
     <Content Include="Views\Albums\Details.cshtml" />
     <Content Include="Views\Albums\Add.cshtml" />
     <Content Include="Views\Albums\Delete.cshtml" />
+    <Content Include="Views\Albums\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

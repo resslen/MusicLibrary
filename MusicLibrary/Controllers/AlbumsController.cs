@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
 using MusicLibrary.Filters;
 using MusicLibrary.Models;
 using MusicLibrary.Services;
@@ -42,10 +43,8 @@ namespace MusicLibrary.Controllers
         public ActionResult Add()
         {
             ViewBag.Title = "Add album";
-            var model = new AddAlbumViewModel();
-            model.Artists = _artistsService.AllArtists();
-            model.AuthorId = model.Artists.First().Id;
-            return View(model);
+            var model = _albumsService.GetAddViewModel();
+            return View("Add", model);
         }
 
         [HttpPost, Route("add")]
@@ -54,7 +53,7 @@ namespace MusicLibrary.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.Errors = _helperService.ModelErrorsToString(ModelState);
-                return View("Add");
+                return Add();
             }
             var id = _albumsService.AddAlbum(model);
             return RedirectToAction("Details", new {Id = id});
@@ -73,6 +72,26 @@ namespace MusicLibrary.Controllers
         {
             _albumsService.DeleteById(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet, Route("{id:int}/edit")]
+        public ActionResult Edit(int id)
+        {
+            var model = _albumsService.GetEditViewModel(id);
+            ViewBag.Title = model.Album.Title;
+            return View("Edit", model);
+        }
+
+        [HttpPost, Route("{id:int}/edit")]
+        public ActionResult EditConfirm(int id, NewAlbumViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Errors = _helperService.ModelErrorsToString(ModelState);
+                return Edit(id);
+            }
+            _albumsService.UpdateAlbum(id, model);
+            return RedirectToAction("Details", new { Id = id });
         }
     }
 }

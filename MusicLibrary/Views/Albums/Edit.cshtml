@@ -1,0 +1,29 @@
+﻿@model MusicLibrary.Models.EditAlbumViewModel
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>Title</th>
+            <td>@Html.TextBox("title", Model.Album.Title)</td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td>@Html.DropDownListFor(x => x.AuthorId, new SelectList(Model.Artists, "Id", "Name"))</td>
+        </tr>
+        <tr>
+            <th>Year</th>
+            <td>@Html.TextBox("year", Model.Album.Year)</td>
+        </tr>
+        <tr>
+            <th>Tracklist</th>
+            <td class="multiline">@Html.TextArea("tracklist", Model.Album.Tracklist)</td>
+        </tr>
+        <tr>
+            <th>Last.fm link</th>
+            <td><a href="@Model.Album.LastFmUrl">@Model.Album.LastFmUrl</a></td>
+        </tr>
+    </table>
+    @Html.ActionLink("Back", "Details", new { Id = Model.Album.Id }) <br>
+    <input type="submit" name="save" value="Save" class="btn btn-default" />
+    @(ViewBag.Errors ?? "")
+}

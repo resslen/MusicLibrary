@@ -11,10 +11,12 @@ namespace MusicLibrary.Services
     public class AlbumsService : IAlbumsService
     {
         private readonly LibraryContext _context;
+        private readonly IArtistsService _artistsService;
 
-        public AlbumsService(LibraryContext context)
+        public AlbumsService(LibraryContext context, IArtistsService artistsService)
         {
             _context = context;
+            _artistsService = artistsService;
         }
 
         private Album Find(int id)
@@ -64,6 +66,28 @@ namespace MusicLibrary.Services
             var album = Find(id);
             _context.Albums.Remove(album);
             _context.SaveChanges();
+        }
+
+        public void UpdateAlbum(int id, NewAlbumViewModel model)
+        {
+            var album = Find(id);
+            Mapper.Map(model, album);
+            _context.SaveChanges();
+        }
+
+        public AddAlbumViewModel GetAddViewModel()
+        {
+            var artists = _artistsService.AllArtists();
+            return new AddAlbumViewModel(artists);
+        }
+
+        public EditAlbumViewModel GetEditViewModel(int id)
+        {
+            return new EditAlbumViewModel
+            {
+                Album = AlbumById(id),
+                Artists = _artistsService.AllArtists()
+            };
         }
     }
 }
