@@ -116,6 +116,7 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Filters\HandleNotFoundException.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.cs" />
@@ -166,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Albums\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702091608592_Artists-Albums.resx">
