@@ -15,6 +15,7 @@ namespace MusicLibrary.Controllers
             _artistsService = artistsService;
         }
 
+        [Route("artists")]
         public ActionResult Index()
         {
             ViewBag.Title = "Artist list";
@@ -22,6 +23,7 @@ namespace MusicLibrary.Controllers
             return View(model);
         }
 
+        [Route("artists/{id:int}")]
         public ActionResult Details(int id)
         {
             var model = _artistsService.ArtistById(id);
@@ -29,20 +31,18 @@ namespace MusicLibrary.Controllers
             return View(model);
         }
 
+        [HttpGet, Route("artists/{id:int}/delete")]
         public ActionResult Delete(int id)
         {
-            ArtistViewModel model;
-            if (Request.HttpMethod == "GET")
-            {
-                model = _artistsService.ArtistById(id);
-                return View(model);
-            }
-            else
-            {
-                _artistsService.DeleteById(id);
-                return RedirectToAction("Index");
-            }
+            var model = _artistsService.ArtistById(id);
+            return View(model);
+        }
 
+        [HttpPost, Route("artists/{id:int}/delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            _artistsService.DeleteById(id);
+            return RedirectToAction("Index");
         }
     }
 }
