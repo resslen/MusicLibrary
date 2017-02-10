@@ -127,10 +127,12 @@
     <Compile Include="Migrations\201702091839562_Album-Year.Designer.cs">
       <DependentUpon>201702091839562_Album-Year.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddAlbumViewModel.cs" />
     <Compile Include="Models\AlbumListViewModel.cs" />
     <Compile Include="Models\AlbumViewModel.cs" />
     <Compile Include="Models\ArtistListViewModel.cs" />
     <Compile Include="Models\ArtistViewModel.cs" />
+    <Compile Include="Models\NewAlbumViewModel.cs" />
     <Compile Include="Models\NewArtistViewModel.cs" />
     <Compile Include="Services\AlbumsService.cs" />
     <Compile Include="Services\ArtistsService.cs" />
@@ -164,6 +166,7 @@
     <Content Include="Views\Artists\Edit.cshtml" />
     <Content Include="Views\Albums\Index.cshtml" />
     <Content Include="Views\Albums\Details.cshtml" />
+    <Content Include="Views\Albums\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

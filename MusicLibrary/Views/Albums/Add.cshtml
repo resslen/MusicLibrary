@@ -1,0 +1,29 @@
+﻿@model MusicLibrary.Models.AddAlbumViewModel
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>Title</th>
+            <td><input name="title" type="text" /></td>
+        </tr>
+        <tr>
+            <th>Artist</th>
+            <td>@Html.DropDownListFor(x => x.AuthorId, new SelectList(Model.Artists, "Id", "Name"))</td>
+        </tr>
+        <tr>
+            <th>Year</th>
+            <td><input name="year" type="text" /></td>
+        </tr>
+        <tr>
+            <th>Tracklist</th>
+            <td><textarea name="tracklist"></textarea></td>
+        </tr>
+        <tr>
+            <th>Last.fm link</th>
+            <td><input name="lastFmUrl" type="text" /></td>
+        </tr>
+    </table>
+    <input type="submit" name="add" value="Add" class="btn btn-default" />
+    @(ViewBag.Errors ?? "")
+}
+@Html.ActionLink("Back", "Index")

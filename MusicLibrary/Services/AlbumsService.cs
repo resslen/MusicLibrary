@@ -44,5 +44,19 @@ namespace MusicLibrary.Services
             var album = Find(id);
             return Mapper.Map<AlbumViewModel>(album);
         }
+
+        public int AddAlbum(NewAlbumViewModel model)
+        {
+            var artist = _context.Artists.Find(model.AuthorId);
+            if (artist == null)
+            {
+                throw new NotFoundException();
+            }
+            artist.AlbumCount += 1;
+            var album = Mapper.Map<Album>(model);
+            _context.Albums.Add(album);
+            _context.SaveChanges();
+            return album.Id;
+        }
     }
 }
