@@ -33,7 +33,7 @@
         <tr>
             <td>@album.Title</td>
             <td>@album.Year</td>
-            <td><a>Details</a></td>
+            <td><a>@Html.ActionLink("Details", "Details", "Albums", new {Id = album.AuthorId}, null)</a></td>
         </tr>
     }
 </table>
