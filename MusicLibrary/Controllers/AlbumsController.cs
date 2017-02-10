@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using AutoMapper;
+﻿using System.Web.Mvc;
 using MusicLibrary.Filters;
 using MusicLibrary.Models;
 using MusicLibrary.Services;
@@ -14,13 +12,11 @@ namespace MusicLibrary.Controllers
     {
         private readonly IAlbumsService _albumsService;
         private readonly IHelperService _helperService;
-        private readonly IArtistsService _artistsService;
 
         public AlbumsController(IAlbumsService albumsService, IHelperService helperService, IArtistsService artistsService)
         {
             _albumsService = albumsService;
             _helperService = helperService;
-            _artistsService = artistsService;
         }
 
         [HttpGet, Route("")]

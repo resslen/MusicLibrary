@@ -1,6 +1,4 @@
-﻿using MusicLibrary.DAL;
-
-namespace MusicLibrary.Models
+﻿namespace MusicLibrary.Models
 {
     public class AlbumViewModel
     {
