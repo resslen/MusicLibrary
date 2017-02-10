@@ -58,5 +58,12 @@ namespace MusicLibrary.Services
             _context.SaveChanges();
             return album.Id;
         }
+
+        public void DeleteById(int id)
+        {
+            var album = Find(id);
+            _context.Albums.Remove(album);
+            _context.SaveChanges();
+        }
     }
 }

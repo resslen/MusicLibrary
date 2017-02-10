@@ -59,5 +59,20 @@ namespace MusicLibrary.Controllers
             var id = _albumsService.AddAlbum(model);
             return RedirectToAction("Details", new {Id = id});
         }
+
+        [HttpGet, Route("{id:int}/delete")]
+        public ActionResult Delete(int id)
+        {
+            var model = _albumsService.AlbumById(id);
+            ViewBag.Title = model.Title;
+            return View(model);
+        }
+
+        [HttpPost, Route("{id:int}/delete")]
+        public ActionResult DeleteConfirm(int id)
+        {
+            _albumsService.DeleteById(id);
+            return RedirectToAction("Index");
+        }
     }
 }
