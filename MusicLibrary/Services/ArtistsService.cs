@@ -40,13 +40,16 @@ namespace MusicLibrary.Services
         public ArtistViewModel ArtistById(int id)
         {
             var artist = _context.Artists
-                .Include(x => x.Albums)
                 .SingleOrDefault(x => x.Id == id);
                 
             if (artist == null)
             {
                 throw new NotFoundException();
             }
+            artist.Albums = _context.Albums
+                .Where(x => x.AuthorId == artist.Id)
+                .OrderBy(x => x.Year)
+                .ToList();
             return Mapper.Map<ArtistViewModel>(artist);
         }
 
