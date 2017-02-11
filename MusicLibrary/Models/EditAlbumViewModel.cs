@@ -7,5 +7,6 @@ namespace MusicLibrary.Models
         public AlbumViewModel Album { get; set; }
         public IEnumerable<ArtistListViewModel> Artists { get; set; }
         public int AuthorId => Album.AuthorId;
+        public int Id => Album.Id;
     }
 }

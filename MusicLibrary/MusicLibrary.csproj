@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -173,6 +174,7 @@
     <Content Include="Views\Albums\Edit.cshtml" />
     <Content Include="Views\Shared\SubmitBar.cshtml" />
     <Content Include="Views\Shared\IndexBar.cshtml" />
+    <Content Include="Views\Shared\DetailsBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
