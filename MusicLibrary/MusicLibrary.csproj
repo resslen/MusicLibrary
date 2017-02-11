@@ -119,6 +119,8 @@
     <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
+    <Compile Include="DAL\Tag.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Filters\HandleNotFoundException.cs" />
     <Compile Include="Helpers\ButtonHelpers.cs" />
@@ -130,6 +132,10 @@
     <Compile Include="Migrations\201702091839562_Album-Year.cs" />
     <Compile Include="Migrations\201702091839562_Album-Year.Designer.cs">
       <DependentUpon>201702091839562_Album-Year.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702111647555_tags.cs" />
+    <Compile Include="Migrations\201702111647555_tags.Designer.cs">
+      <DependentUpon>201702111647555_tags.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AddAlbumViewModel.cs" />
     <Compile Include="Models\AlbumListViewModel.cs" />
@@ -192,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Tags\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702091608592_Artists-Albums.resx">
@@ -202,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702091839562_Album-Year.resx">
       <DependentUpon>201702091839562_Album-Year.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702111647555_tags.resx">
+      <DependentUpon>201702111647555_tags.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
