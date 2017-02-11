@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using AutoMapper;
@@ -29,9 +29,15 @@ namespace MusicLibrary.Services
             return artist;
         }
 
-        public IEnumerable<ArtistListViewModel> AllArtists(string sort = null)
+        public IEnumerable<ArtistListViewModel> GetArtists(string sort = null, string search = null)
         {
-            var artistsDal = _context.Artists;
+            IQueryable<Artist> artistsDal = _context.Artists;
+            if (search != null)
+            {
+                search = search.ToLower();
+                artistsDal = artistsDal
+                    .Where(x => x.Name.ToLower().Contains(search));
+            }
             var artists = _sortService.Sort(artistsDal, sort)
                 .ToList();
             return Mapper.Map<List<ArtistListViewModel>>(artists);

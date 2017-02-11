@@ -20,10 +20,10 @@ namespace MusicLibrary.Controllers
         }
 
         [HttpGet, Route("")]
-        public ActionResult Index(string sort)
+        public ActionResult Index(string sort, string search)
         {
             ViewBag.Title = "Artist list";
-            var model = _artistsService.AllArtists(sort);
+            var model = _artistsService.GetArtists(sort, search);
             return View(model);
         }
 

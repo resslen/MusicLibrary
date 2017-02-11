@@ -5,7 +5,7 @@ namespace MusicLibrary.Services
 {
     public interface IArtistsService
     {
-        IEnumerable<ArtistListViewModel> AllArtists(string sort = null);
+        IEnumerable<ArtistListViewModel> GetArtists(string sort = null, string search = null);
         ArtistViewModel ArtistById(int id);
         void DeleteById(int id);
         int AddArtist(NewArtistViewModel model);

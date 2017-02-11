@@ -80,7 +80,7 @@ namespace MusicLibrary.Services
 
         public AddAlbumViewModel GetAddViewModel()
         {
-            var artists = _artistsService.AllArtists();
+            var artists = _artistsService.GetArtists();
             return new AddAlbumViewModel(artists);
         }
 
@@ -89,7 +89,7 @@ namespace MusicLibrary.Services
             return new EditAlbumViewModel
             {
                 Album = AlbumById(id),
-                Artists = _artistsService.AllArtists()
+                Artists = _artistsService.GetArtists()
             };
         }
     }
