@@ -119,6 +119,7 @@
     <Compile Include="App_Start\AutomapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="DAL\Tag.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
@@ -194,6 +195,7 @@
     <Content Include="Views\Shared\AddBar.cshtml" />
     <Content Include="Views\Tags\Index.cshtml" />
     <Content Include="Views\Tags\Albums.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

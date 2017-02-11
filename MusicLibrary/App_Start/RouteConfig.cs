@@ -11,11 +11,7 @@ namespace MusicLibrary
             routes.MapMvcAttributeRoutes();
             routes.LowercaseUrls = true;
 
-            /*routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Artists", action = "Index", id = UrlParameter.Optional }
-            );*/
+            routes.MapRoute("Index", "", new {controller = "Index", action = "Index"});
         }
     }
 }
