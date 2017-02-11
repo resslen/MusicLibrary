@@ -5,79 +5,84 @@ using MusicLibrary.DAL;
 
 namespace MusicLibrary.Services
 {
-    public class SortService
+    public class SortService : ISortService
     {
         public IQueryable<Artist> Sort(IQueryable<Artist> artists, string sortBy)
         {
+            var result = artists.OrderBy(x => 0);
             if (sortBy == null)
             {
-                return artists;
+                return DefaultSort(result);
             }
-            var result = artists.OrderBy(x => 0);
             var sequence = Split(sortBy);
             foreach (var sortType in sequence)
             {
-                Apply(result, sortType);
+                result = Apply(result, sortType);
             }
             return result;
         }
 
         public IQueryable<Album> Sort(IQueryable<Album> albums, string sortBy)
         {
+            var result = albums.OrderBy(x => 0);
             if (sortBy == null)
             {
-                return albums;
+                return DefaultSort(result);
             }
-            var result = albums.OrderBy(x => 0);
             var sequence = Split(sortBy);
             foreach (var sortType in sequence)
             {
-                Apply(result, sortType);
+                result = Apply(result, sortType);
             }
             return result;
         }
 
-        private void Apply(IOrderedQueryable<Artist> result, string sortType)
+        private IOrderedQueryable<Album> DefaultSort(IOrderedQueryable<Album> albums)
+        {
+            return albums.ThenBy(x => x.Title)
+                .ThenBy(x => x.Author.Name);
+        }
+
+        private IOrderedQueryable<Artist> DefaultSort(IOrderedQueryable<Artist> artists)
+        {
+            return artists.ThenBy(x => x.Name);
+        }
+
+        private IOrderedQueryable<Artist> Apply(IOrderedQueryable<Artist> result, string sortType)
         {
             switch (sortType)
             {
                 case "name":
-                    result = result.ThenBy(x => x.Name);
-                    break;
+                    return result.ThenBy(x => x.Name);
                 case "namedesc":
-                    result = result.ThenByDescending(x => x.Name);
-                    break;
-                case "albums":
-                    result = result.ThenBy(x => x.AlbumCount);
-                    break;
+                    return result.ThenByDescending(x => x.Name);
+                case "artists":
+                    return result.ThenBy(x => x.AlbumCount);
                 case "albumsdesc":
-                    result = result.ThenByDescending(x => x.AlbumCount);
-                    break;
+                    return result.ThenByDescending(x => x.AlbumCount);
+                default:
+                    return result;
             }
         }
 
-        private void Apply(IOrderedQueryable<Album> result, string sortType)
+        private IOrderedQueryable<Album> Apply(IOrderedQueryable<Album> result, string sortType)
         {
             switch (sortType)
             {
                 case "title":
-                    result = result.ThenBy(x => x.Title);
-                    break;
+                    return result.ThenBy(x => x.Title);
                 case "titledesc":
-                    result = result.ThenByDescending(x => x.Title);
-                    break;
+                    return result.ThenByDescending(x => x.Title);
                 case "artist":
-                    result = result.ThenBy(x => x.Author.Name);
-                    break;
+                    return result.ThenBy(x => x.Author.Name);
                 case "artistdesc":
-                    result = result.ThenByDescending(x => x.Author.Name);
-                    break;
+                    return result.ThenByDescending(x => x.Author.Name);
                 case "year":
-                    result = result.ThenBy(x => x.Year);
-                    break;
+                    return result.ThenBy(x => x.Year);
                 case "yeardesc":
-                    result = result.ThenByDescending(x => x.Year);
-                    break;
+                    return result.ThenByDescending(x => x.Year);
+                default:
+                    return result;
             }
         }
 

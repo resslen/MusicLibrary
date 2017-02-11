@@ -157,6 +157,7 @@
     <Compile Include="Services\IAlbumsService.cs" />
     <Compile Include="Services\IArtistsService.cs" />
     <Compile Include="Services\IHelperService.cs" />
+    <Compile Include="Services\ISortService.cs" />
     <Compile Include="Services\SortService.cs" />
   </ItemGroup>
   <ItemGroup>

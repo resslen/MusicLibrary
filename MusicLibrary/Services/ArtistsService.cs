@@ -11,9 +11,9 @@ namespace MusicLibrary.Services
     public class ArtistsService : IArtistsService
     {
         private readonly LibraryContext _context;
-        private readonly SortService _sortService;
+        private readonly ISortService _sortService;
 
-        public ArtistsService(LibraryContext context, SortService sortService)
+        public ArtistsService(LibraryContext context, ISortService sortService)
         {
             _context = context;
             _sortService = sortService;

@@ -12,11 +12,13 @@ namespace MusicLibrary.Services
     {
         private readonly LibraryContext _context;
         private readonly IArtistsService _artistsService;
+        private readonly ISortService _sortService;
 
-        public AlbumsService(LibraryContext context, IArtistsService artistsService)
+        public AlbumsService(LibraryContext context, IArtistsService artistsService, ISortService sortService)
         {
             _context = context;
             _artistsService = artistsService;
+            _sortService = sortService;
         }
 
         private Album Find(int id)
@@ -31,12 +33,11 @@ namespace MusicLibrary.Services
             return album;
         }
 
-        public IEnumerable<AlbumListViewModel> AllAbums()
+        public IEnumerable<AlbumListViewModel> AllAbums(string sort = null)
         {
-            var albums = _context.Albums
-                .Include(x => x.Author)
-                .OrderBy(x => x.Author.Name)
-                .ThenBy(x => x.Title)
+            var albumsDal = _context.Albums
+                .Include(x => x.Author);
+            var albums = _sortService.Sort(albumsDal, sort)
                 .ToList();
             return Mapper.Map<IEnumerable<AlbumListViewModel>>(albums);
         }

@@ -5,7 +5,7 @@ namespace MusicLibrary.Services
 {
     public interface IAlbumsService
     {
-        IEnumerable<AlbumListViewModel> AllAbums();
+        IEnumerable<AlbumListViewModel> AllAbums(string sort = null);
         AlbumViewModel AlbumById(int id);
         int AddAlbum(NewAlbumViewModel model);
         void DeleteById(int id);
