@@ -166,6 +166,7 @@
     <Compile Include="Services\IHelperService.cs" />
     <Compile Include="Services\ISortService.cs" />
     <Compile Include="Services\SortService.cs" />
+    <Compile Include="Services\TagsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -189,6 +190,7 @@
     <Content Include="Views\Artists\DetailsPartial.cshtml" />
     <Content Include="Views\Artists\AlbumsPartial.cshtml" />
     <Content Include="Views\Shared\AddBar.cshtml" />
+    <Content Include="Views\Tags\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,7 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Tags\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201702091608592_Artists-Albums.resx">

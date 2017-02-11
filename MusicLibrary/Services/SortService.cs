@@ -37,6 +37,21 @@ namespace MusicLibrary.Services
             return result;
         }
 
+        public IQueryable<Tag> Sort(IQueryable<Tag> tags, string sortBy)
+        {
+            var result = tags.OrderBy(x => 0);
+            if (sortBy == null)
+            {
+                return DefaultSort(result);
+            }
+            var sequence = Split(sortBy);
+            foreach (var sortType in sequence)
+            {
+                result = Apply(result, sortType);
+            }
+            return result;
+        }
+
         private IOrderedQueryable<Album> DefaultSort(IOrderedQueryable<Album> albums)
         {
             return albums.ThenBy(x => x.Title)
@@ -46,6 +61,24 @@ namespace MusicLibrary.Services
         private IOrderedQueryable<Artist> DefaultSort(IOrderedQueryable<Artist> artists)
         {
             return artists.ThenBy(x => x.Name);
+        }
+
+        private IOrderedQueryable<Tag> DefaultSort(IOrderedQueryable<Tag> tags)
+        {
+            return tags.ThenBy(x => x.Name);
+        }
+
+        private IOrderedQueryable<Tag> Apply(IOrderedQueryable<Tag> result, string sortType)
+        {
+            switch (sortType)
+            {
+                case "name":
+                    return result.ThenBy(x => x.Name);
+                case "namedesc":
+                    return result.ThenByDescending(x => x.Name);
+                default:
+                    return result;
+            }
         }
 
         private IOrderedQueryable<Artist> Apply(IOrderedQueryable<Artist> result, string sortType)

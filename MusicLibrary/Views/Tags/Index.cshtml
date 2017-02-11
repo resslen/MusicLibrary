@@ -1,0 +1,17 @@
+﻿@using MusicLibrary.Helpers
+@model IEnumerable<MusicLibrary.DAL.Tag>
+@Html.Partial("IndexBar")
+
+<table class="striped responsive-table">
+    <tr>
+        <th>Name @Html.SortButtons("name")</th>
+        <th>Albums</th>
+    </tr>
+    @foreach (var tag in Model)
+    {
+        <tr>
+            <td>@tag.Name</td>
+            <td>@Html.ActionButton("Albums", "Details", new { Id = tag.Id })</td>
+        </tr>
+    }
+</table>

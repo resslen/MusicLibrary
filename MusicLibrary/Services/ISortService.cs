@@ -7,5 +7,6 @@ namespace MusicLibrary.Services
     {
         IQueryable<Artist> Sort(IQueryable<Artist> artists, string sortBy);
         IQueryable<Album> Sort(IQueryable<Album> albums, string sortBy);
+        IQueryable<Tag> Sort(IQueryable<Tag> tags, string sortBy);
     }
 }
