@@ -6,6 +6,7 @@ namespace MusicLibrary.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Title = "Main page";
             return View();
         }
     }

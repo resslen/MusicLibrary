@@ -20,6 +20,7 @@ namespace MusicLibrary.Controllers
         public ActionResult Index(string sort, string search)
         {
             var model = _tagsService.GetTags(sort, search);
+            ViewBag.Title = "Tags";
             return View(model);
         }
 
@@ -34,6 +35,7 @@ namespace MusicLibrary.Controllers
         public ActionResult Albums(int id)
         {
             var tag = _tagsService.GetTag(id);
+            ViewBag.Title = "Albums with tag " + tag.Name;
             return View(tag);
         }
     }
