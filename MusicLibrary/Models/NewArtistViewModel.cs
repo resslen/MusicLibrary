@@ -5,7 +5,7 @@ namespace MusicLibrary.Models
     public class NewArtistViewModel
     {
         [Required(ErrorMessage = "Name is required")]
-        [StringLength(60, ErrorMessage = "Max length od name is 60 characters")]
+        [StringLength(60, ErrorMessage = "Max length of name is 60 characters")]
         public string Name { get; set; }
         [StringLength(65536, ErrorMessage = "Max length of description if 65536 characters")]
         public string Description { get; set; }
