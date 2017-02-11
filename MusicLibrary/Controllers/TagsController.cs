@@ -22,5 +22,12 @@ namespace MusicLibrary.Controllers
             var model = _tagsService.GetTags(sort, search);
             return View(model);
         }
+
+        [HttpGet, Route("clean")]
+        public ActionResult Clean()
+        {
+            _tagsService.CleanTags();
+            return RedirectToAction("Index");
+        }
     }
 }

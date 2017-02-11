@@ -68,5 +68,13 @@ namespace MusicLibrary.Services
                 albumTags.Add(tag);
             }
         }
+
+        public void CleanTags()
+        {
+            var unusedTags = _context.Tags
+                .Where(x => x.Albums.Count == 0);
+            _context.Tags.RemoveRange(unusedTags);
+            _context.SaveChanges();
+        }
     }
 }
