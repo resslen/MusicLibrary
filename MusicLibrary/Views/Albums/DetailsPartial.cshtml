@@ -21,7 +21,7 @@
         <td>
             @foreach (var tag in Model.Tags)
             {
-                @Html.ActionLink(tag.Name, "Details", "Tags", new { Id = tag.Id }, null);<br/>
+                @Html.ActionLink(tag.Name, "Albums", "Tags", new { Id = tag.Id }, null);<br/>
             }
         </td>
     </tr>

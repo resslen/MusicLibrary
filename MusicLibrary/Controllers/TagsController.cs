@@ -30,7 +30,7 @@ namespace MusicLibrary.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet, Route("albums")]
+        [HttpGet, Route("{id:int}")]
         public ActionResult Albums(int id)
         {
             var tag = _tagsService.GetTag(id);
