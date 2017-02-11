@@ -38,7 +38,7 @@ namespace MusicLibrary.Controllers
         [HttpGet, Route("add")]
         public ActionResult Add()
         {
-            ViewBag.Title = "Add album";
+            ViewBag.Title = "Add new album";
             var model = _albumsService.GetAddViewModel();
             return View("Add", model);
         }

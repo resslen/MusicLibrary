@@ -22,7 +22,7 @@ namespace MusicLibrary.Controllers
         [HttpGet, Route("")]
         public ActionResult Index()
         {
-            ViewBag.Title = "Author list";
+            ViewBag.Title = "Artist list";
             var model = _artistsService.AllArtists();
             return View(model);
         }
@@ -53,6 +53,7 @@ namespace MusicLibrary.Controllers
         [HttpGet, Route("add")]
         public ActionResult Add()
         {
+            ViewBag.Title = "Add new artist";
             return View();
         }
 
@@ -72,6 +73,7 @@ namespace MusicLibrary.Controllers
         public ActionResult Edit(int id)
         {
             var model = _artistsService.ArtistById(id);
+            ViewBag.Title = model.Name;
             return View("Edit", model);
         }
 
