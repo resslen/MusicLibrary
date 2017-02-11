@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using MusicLibrary.DAL;
+using MusicLibrary.Exceptions;
 
 namespace MusicLibrary.Services
 {
@@ -31,7 +33,15 @@ namespace MusicLibrary.Services
 
         public void UpdateAlbumWithTags(Album album, string tags)
         {
-            var tagsRequest = tags.ToLower().Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+            string[] tagsRequest;
+            if (tags != null)
+            {
+                tagsRequest = tags.ToLower().Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+            }
+            else
+            {
+                tagsRequest = new string[0];
+            }
             var tagsInDb = new List<Tag>();
             var newTags = new List<Tag>();
 
@@ -75,6 +85,18 @@ namespace MusicLibrary.Services
                 .Where(x => x.Albums.Count == 0);
             _context.Tags.RemoveRange(unusedTags);
             _context.SaveChanges();
+        }
+
+        public Tag GetTag(int id)
+        {
+            var tag = _context.Tags
+                .Include(x => x.Albums.Select(y => y.Author))
+                .SingleOrDefault(x => x.Id == id);
+            if (tag == null)
+            {
+                throw new NotFoundException();
+            }
+            return tag;
         }
     }
 }

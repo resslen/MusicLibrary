@@ -192,6 +192,7 @@
     <Content Include="Views\Artists\AlbumsPartial.cshtml" />
     <Content Include="Views\Shared\AddBar.cshtml" />
     <Content Include="Views\Tags\Index.cshtml" />
+    <Content Include="Views\Tags\Albums.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

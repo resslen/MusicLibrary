@@ -29,5 +29,12 @@ namespace MusicLibrary.Controllers
             _tagsService.CleanTags();
             return RedirectToAction("Index");
         }
+
+        [HttpGet, Route("albums")]
+        public ActionResult Albums(int id)
+        {
+            var tag = _tagsService.GetTag(id);
+            return View(tag);
+        }
     }
 }
