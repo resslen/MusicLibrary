@@ -24,7 +24,7 @@ namespace MusicLibrary.App_Start
             builder.RegisterType<HelperService>().As<IHelperService>();
             builder.RegisterType<AlbumsService>().As<IAlbumsService>();
             builder.RegisterType<SortService>().As<ISortService>();
-            builder.RegisterType<TagsService>().AsSelf();
+            builder.RegisterType<TagsService>().As<ITagsService>();
         }
     }
 }

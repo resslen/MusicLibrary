@@ -7,7 +7,7 @@ using MusicLibrary.Exceptions;
 
 namespace MusicLibrary.Services
 {
-    public class TagsService
+    public class TagsService : ITagsService
     {
         private readonly LibraryContext _context;
         private readonly ISortService _sortService;

@@ -166,6 +166,7 @@
     <Compile Include="Services\IArtistsService.cs" />
     <Compile Include="Services\IHelperService.cs" />
     <Compile Include="Services\ISortService.cs" />
+    <Compile Include="Services\ITagsService.cs" />
     <Compile Include="Services\SortService.cs" />
     <Compile Include="Services\TagsService.cs" />
   </ItemGroup>

@@ -13,9 +13,9 @@ namespace MusicLibrary.Services
         private readonly LibraryContext _context;
         private readonly IArtistsService _artistsService;
         private readonly ISortService _sortService;
-        private readonly TagsService _tagsService;
+        private readonly ITagsService _tagsService;
 
-        public AlbumsService(LibraryContext context, IArtistsService artistsService, ISortService sortService, TagsService tagsService)
+        public AlbumsService(LibraryContext context, IArtistsService artistsService, ISortService sortService, ITagsService tagsService)
         {
             _context = context;
             _artistsService = artistsService;
