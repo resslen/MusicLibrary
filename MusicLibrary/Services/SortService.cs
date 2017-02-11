@@ -56,7 +56,7 @@ namespace MusicLibrary.Services
                     return result.ThenBy(x => x.Name);
                 case "namedesc":
                     return result.ThenByDescending(x => x.Name);
-                case "artists":
+                case "albums":
                     return result.ThenBy(x => x.AlbumCount);
                 case "albumsdesc":
                     return result.ThenByDescending(x => x.AlbumCount);

@@ -3,8 +3,8 @@
 @Html.Partial("IndexBar")
 <table class="striped responsive-table">
     <tr>
-        <th>Name</th>
-        <th>Number of albums</th>
+        <th>Name @Html.SortButtons("name")</th>
+        <th>Number of albums @Html.SortButtons("albums")</th>
         <th>Details</th>
         <th>Edit</th>
         <th>Delete</th>

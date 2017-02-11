@@ -3,9 +3,9 @@
 @Html.Partial("IndexBar")
 <table class="responsive-table striped">
     <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Year</th>
+        <th>Title @Html.SortButtons("title")</th>
+        <th>Author @Html.SortButtons("artist")</th>
+        <th>Year @Html.SortButtons("year")</th>
         <th>Details</th>
         <th>Edit</th>
         <th>Delete</th>
