@@ -25,6 +25,7 @@ namespace MusicLibrary.Services
         {
             var album = _context.Albums
                 .Include(x => x.Author)
+                .Include(x => x.Tags)
                 .SingleOrDefault(x => x.Id == id);
             if (album == null)
             {
