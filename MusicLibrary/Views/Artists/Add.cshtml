@@ -1,21 +1,29 @@
 ﻿@model MusicLibrary.Models.ArtistViewModel
 @using (Html.BeginForm())
 {
-    <table>
-        <tr>
-            <th>Name</th>
-            <td><input name="name" type="text" /></td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td><textarea name="description"></textarea></td>
-        </tr>
-        <tr>
-            <th>Last.fm link</th>
-            <td><input name="lastFmUrl" type="text" /></td>
-        </tr>
-    </table>
-    <input type="submit" name="delete" value="Add" class="btn btn-default" />
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="name" name="name" type="text" />
+                    <label for="name">Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="lastFmUrl" name="lastFmUrl" type="text" />
+                    <label for="lastFmUrl">Last.fm link</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="description" name="description" class="materialize-textarea"></textarea>
+                    <label for="description">Description</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" name="delete" value="Add" class="btn" />
     @(ViewBag.Message ?? "")
 }
 @Html.ActionLink("Back", "Index")
