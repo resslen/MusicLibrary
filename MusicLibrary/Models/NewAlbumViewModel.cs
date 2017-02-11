@@ -15,5 +15,7 @@ namespace MusicLibrary.Models
         public string LastFmUrl { get; set; }
         [Required(ErrorMessage = "The year is required")]
         public int Year { get; set; }
+        [StringLength(1000, ErrorMessage = "Max length of tags if 1000 characters")]
+        public string Tags { get; set; }
     }
 }

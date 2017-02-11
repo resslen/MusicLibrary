@@ -20,7 +20,8 @@ namespace MusicLibrary.App_Start
                 .ForMember(x => x.Author, conf => conf.MapFrom(album => album.Author.Name));
             config.CreateMap<Album, AlbumViewModel>()
                 .ForMember(x => x.Author, conf => conf.MapFrom(album => album.Author.Name));
-            config.CreateMap<NewAlbumViewModel, Album>();
+            config.CreateMap<NewAlbumViewModel, Album>()
+                .ForMember(x => x.Tags, conf => conf.Ignore()); // TagsService will map this
         }
     }
 }

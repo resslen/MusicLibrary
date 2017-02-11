@@ -19,7 +19,7 @@ namespace MusicLibrary.App_Start
 
         private static void Register(ContainerBuilder builder)
         {
-            builder.RegisterType<LibraryContext>().AsSelf();
+            builder.RegisterType<LibraryContext>().AsSelf().InstancePerRequest();
             builder.RegisterType<ArtistsService>().As<IArtistsService>();
             builder.RegisterType<HelperService>().As<IHelperService>();
             builder.RegisterType<AlbumsService>().As<IAlbumsService>();

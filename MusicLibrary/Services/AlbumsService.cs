@@ -13,12 +13,14 @@ namespace MusicLibrary.Services
         private readonly LibraryContext _context;
         private readonly IArtistsService _artistsService;
         private readonly ISortService _sortService;
+        private readonly TagsService _tagsService;
 
-        public AlbumsService(LibraryContext context, IArtistsService artistsService, ISortService sortService)
+        public AlbumsService(LibraryContext context, IArtistsService artistsService, ISortService sortService, TagsService tagsService)
         {
             _context = context;
             _artistsService = artistsService;
             _sortService = sortService;
+            _tagsService = tagsService;
         }
 
         private Album Find(int id)
@@ -82,6 +84,7 @@ namespace MusicLibrary.Services
         {
             var album = Find(id);
             Mapper.Map(model, album);
+            _tagsService.UpdateAlbumWithTags(album, model.Tags);
             _context.SaveChanges();
         }
 
