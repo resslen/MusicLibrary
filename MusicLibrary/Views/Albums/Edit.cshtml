@@ -1,27 +1,39 @@
 ﻿@model MusicLibrary.Models.EditAlbumViewModel
 @using (Html.BeginForm())
 {
-    <table>
-        <tr>
-            <th>Title</th>
-            <td>@Html.TextBox("title", Model.Album.Title)</td>
-        </tr>
-        <tr>
-            <th>Author</th>
-            <td>@Html.DropDownListFor(x => x.AuthorId, new SelectList(Model.Artists, "Id", "Name"))</td>
-        </tr>
-        <tr>
-            <th>Year</th>
-            <td>@Html.TextBox("year", Model.Album.Year)</td>
-        </tr>
-        <tr>
-            <th>Tracklist</th>
-            <td class="multiline">@Html.TextArea("tracklist", Model.Album.Tracklist)</td>
-        </tr>
-        <tr>
-            <th>Last.fm link</th>
-            <td><a href="@Model.Album.LastFmUrl">@Model.Album.LastFmUrl</a></td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    @Html.TextBox("title", Model.Album.Title)
+                    <label for="title">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    @Html.DropDownListFor(x => x.AuthorId, new SelectList(Model.Artists, "Id", "Name"))
+                    <label for="AuthorId">Artist</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    @Html.TextBox("year", Model.Album.Year)
+                    <label for="year">Year</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    @Html.TextBox("lastFmUrl", Model.Album.LastFmUrl)
+                    <label for="lastFmUrl">Last.fm link</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="tracklist" name="tracklist" class="materialize-textarea">@Model.Album.Tracklist</textarea>
+                    <label for="tracklist">Tracklist</label>
+                </div>
+            </div>
+        </div>
+    </div>
     @Html.Partial("SubmitBar", Model)
 }
