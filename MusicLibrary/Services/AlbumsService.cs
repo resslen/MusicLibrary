@@ -33,10 +33,16 @@ namespace MusicLibrary.Services
             return album;
         }
 
-        public IEnumerable<AlbumListViewModel> AllAbums(string sort = null)
+        public IEnumerable<AlbumListViewModel> GetAlbums(string sort = null, string search = null)
         {
             var albumsDal = _context.Albums
                 .Include(x => x.Author);
+            if (search != null)
+            {
+                search = search.ToLower();
+                albumsDal = albumsDal
+                    .Where(x => x.Title.ToLower().Contains(search));
+            }
             var albums = _sortService.Sort(albumsDal, sort)
                 .ToList();
             return Mapper.Map<IEnumerable<AlbumListViewModel>>(albums);
