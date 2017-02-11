@@ -14,7 +14,7 @@
     {
         <tr>
             <td>@album.Title</td>
-            <td>@Html.ActionLink(album.Author, "Details", "Artists", new { Id = album.AuthorId })</td>
+            <td>@Html.ActionLink(album.Author, "Details", "Artists", new { Id = album.AuthorId }, null)</td>
             <td>@album.Year</td>
             <td>@Html.ActionButton("Details", "Details", new { Id = album.Id })</td>
             <td>@Html.ActionButton("Edit", "Edit", new { Id = album.Id })</td>
