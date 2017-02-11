@@ -61,7 +61,7 @@ namespace MusicLibrary.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Errors = _helperService.ModelErrorsToString(ModelState);
+                ViewBag.Message = _helperService.ModelErrorsToString(ModelState);
                 return View("Add");
             }
             var id = _artistsService.AddArtist(model);
@@ -80,7 +80,7 @@ namespace MusicLibrary.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Errors = _helperService.ModelErrorsToString(ModelState);
+                ViewBag.Message = _helperService.ModelErrorsToString(ModelState);
                 return Edit(id);
             }
             _artistsService.UpdateArtist(id, model);
