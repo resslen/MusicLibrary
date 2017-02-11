@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace MusicLibrary.Helpers
 {
-    public static class HtmlHelpers
+    public static class ButtonHelpers
     {
         private static readonly object HtmlAttributes = new
             {
