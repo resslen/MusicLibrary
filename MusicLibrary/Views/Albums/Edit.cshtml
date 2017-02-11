@@ -1,4 +1,5 @@
-﻿@model MusicLibrary.Models.EditAlbumViewModel
+﻿@using MusicLibrary.Helpers
+@model MusicLibrary.Models.EditAlbumViewModel
 @using (Html.BeginForm())
 {
     <div class="row">
@@ -25,6 +26,12 @@
                 <div class="input-field col s12">
                     @Html.TextBox("lastFmUrl", Model.Album.LastFmUrl)
                     <label for="lastFmUrl">Last.fm link</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    @Html.TextBox("tags", Html.ListTags(Model.Album.Tags))
+                    <label for="tags">Tags</label>
                 </div>
             </div>
             <div class="row">

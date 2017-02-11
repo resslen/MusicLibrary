@@ -125,6 +125,7 @@
     <Compile Include="Filters\HandleNotFoundException.cs" />
     <Compile Include="Helpers\ButtonHelpers.cs" />
     <Compile Include="Helpers\SortHelpers.cs" />
+    <Compile Include="Helpers\TagsHelper.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.cs" />
     <Compile Include="Migrations\201702091720296_AlbumCount.Designer.cs">
       <DependentUpon>201702091720296_AlbumCount.cs</DependentUpon>
