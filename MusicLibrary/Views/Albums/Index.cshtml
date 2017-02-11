@@ -1,10 +1,6 @@
 ﻿@using MusicLibrary.Helpers
 @model IEnumerable<MusicLibrary.Models.AlbumListViewModel>
-<div class="card">
-    <div class="card-content">
-        @Html.ActionButton("Add new", "Add")
-    </div>
-</div>
+@Html.Partial("IndexBar")
 <table class="responsive-table striped">
     <tr>
         <th>Title</th>
