@@ -66,6 +66,8 @@ namespace MusicLibrary.Services
             }
             artist.AlbumCount += 1;
             var album = Mapper.Map<Album>(model);
+            album.Tags = new List<Tag>();
+            _tagsService.UpdateAlbumWithTags(album, model.Tags);
             _context.Albums.Add(album);
             _context.SaveChanges();
             return album.Id;
