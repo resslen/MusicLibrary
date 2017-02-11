@@ -1,0 +1,23 @@
+﻿@model MusicLibrary.Models.AlbumViewModel
+<table class="striped responsive-table">
+    <tr>
+        <th>Title</th>
+        <td>@Model.Title</td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td>@Html.ActionLink(Model.Author, "Details", "Artists", new { Id = Model.AuthorId }, null)</td>
+    </tr>
+    <tr>
+        <th>Year</th>
+        <td>@Model.Year</td>
+    </tr>
+    <tr>
+        <th>Last.fm link</th>
+        <td><a href="@Model.LastFmUrl">@Model.LastFmUrl</a></td>
+    </tr>
+    <tr>
+        <th>Tracklist</th>
+        <td class="multiline">@Model.Tracklist</td>
+    </tr>
+</table>

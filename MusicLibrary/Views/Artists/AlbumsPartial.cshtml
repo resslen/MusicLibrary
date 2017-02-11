@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MusicLibrary.DAL.Album>
+@using MusicLibrary.Helpers
+<h1>Albums</h1>
+<table class="striped responsive-table">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var album in Model)
+    {
+        <tr>
+            <td>@album.Title</td>
+            <td>@album.Year</td>
+            <td><a>@Html.ActionButton("Details", "Details", "Albums", new { Id = album.Id })</a></td>
+        </tr>
+    }
+</table>

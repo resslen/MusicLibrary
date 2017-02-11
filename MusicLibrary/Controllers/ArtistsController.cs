@@ -40,6 +40,7 @@ namespace MusicLibrary.Controllers
         {
             var model = _artistsService.ArtistById(id);
             ViewBag.Title = model.Name;
+            ViewBag.Message = "Do you really want to delete artist with all albums?";
             return View(model);
         }
 

@@ -1,7 +1,7 @@
 ﻿@model MusicLibrary.Models.ArtistViewModel
-@Html.Partial("Details", Model)
-@(ViewBag.Message = "Do you really want to delete album?")
+@Html.Partial("DetailsPartial", Model)
 @using (Html.BeginForm())
 {
     @Html.Partial("SubmitBar", Model)
 }
+@Html.Partial("AlbumsPartial", Model.Albums)

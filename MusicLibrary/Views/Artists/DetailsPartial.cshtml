@@ -1,0 +1,21 @@
+﻿@model MusicLibrary.Models.ArtistViewModel
+<table class="striped responsive-table">
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td class="multiline">@Model.Description</td>
+    </tr>
+    <tr>
+        <th>Album count</th>
+        <td>@Model.AlbumCount</td>
+    </tr>
+    <tr>
+        <th>Last.fm link</th>
+        <td><a href="@Model.LastFmUrl">@Model.LastFmUrl</a></td>
+    </tr>
+</table>
+
+

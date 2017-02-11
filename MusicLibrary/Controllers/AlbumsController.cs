@@ -60,6 +60,7 @@ namespace MusicLibrary.Controllers
         {
             var model = _albumsService.AlbumById(id);
             ViewBag.Title = model.Title;
+            ViewBag.Message = "Do you really want to delete album?";
             return View(model);
         }
 
