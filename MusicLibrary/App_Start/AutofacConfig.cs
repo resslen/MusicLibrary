@@ -23,6 +23,7 @@ namespace MusicLibrary.App_Start
             builder.RegisterType<ArtistsService>().As<IArtistsService>();
             builder.RegisterType<HelperService>().As<IHelperService>();
             builder.RegisterType<AlbumsService>().As<IAlbumsService>();
+            builder.RegisterType<SortService>().AsSelf();
         }
     }
 }

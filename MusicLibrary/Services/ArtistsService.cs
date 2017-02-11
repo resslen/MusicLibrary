@@ -11,10 +11,12 @@ namespace MusicLibrary.Services
     public class ArtistsService : IArtistsService
     {
         private readonly LibraryContext _context;
+        private readonly SortService _sortService;
 
-        public ArtistsService(LibraryContext context)
+        public ArtistsService(LibraryContext context, SortService sortService)
         {
             _context = context;
+            _sortService = sortService;
         }
 
         private Artist Find(int id)
@@ -27,9 +29,11 @@ namespace MusicLibrary.Services
             return artist;
         }
 
-        public IEnumerable<ArtistListViewModel> AllArtists()
+        public IEnumerable<ArtistListViewModel> AllArtists(string sort = null)
         {
-            var artists = _context.Artists.ToList();
+            var artistsDal = _context.Artists;
+            var artists = _sortService.Sort(artistsDal, sort)
+                .ToList();
             return Mapper.Map<List<ArtistListViewModel>>(artists);
         }
 
