@@ -1,5 +1,5 @@
 ﻿@model MusicLibrary.Models.AlbumViewModel
-<table>
+<table class="striped responsive-table">
     <tr>
         <th>Title</th>
         <td>@Model.Title</td>
@@ -13,14 +13,13 @@
         <td>@Model.Year</td>
     </tr>
     <tr>
-        <th>Tracklist</th>
-        <td class="multiline">@Model.Tracklist</td>
-    </tr>
-    <tr>
         <th>Last.fm link</th>
         <td><a href="@Model.LastFmUrl">@Model.LastFmUrl</a></td>
     </tr>
+    <tr>
+        <th>Tracklist</th>
+        <td class="multiline">@Model.Tracklist</td>
+    </tr>
 </table>
-@Html.ActionLink("Back", "Index")
-@Html.ActionLink("Edit", "Edit", new { Id = Model.Id })
-@Html.ActionLink("Delete", "Delete", new { Id = Model.Id })
+@Html.Partial("DetailsBar")
+

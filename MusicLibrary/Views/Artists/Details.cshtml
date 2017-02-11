@@ -1,12 +1,13 @@
-﻿@model MusicLibrary.Models.ArtistViewModel
-<table>
+﻿@using MusicLibrary.Helpers
+@model MusicLibrary.Models.ArtistViewModel
+<table class="striped responsive-table">
     <tr>
         <th>Name</th>
         <td>@Model.Name</td>
     </tr>
     <tr>
         <th>Description</th>
-        <td>@Model.Description</td>
+        <td class="multiline">@Model.Description</td>
     </tr>
     <tr>
         <th>Album count</th>
@@ -17,12 +18,10 @@
         <td><a href="@Model.LastFmUrl">@Model.LastFmUrl</a></td>
     </tr>
 </table>
-@Html.ActionLink("Back", "Index")
-@Html.ActionLink("Edit", "Edit", new { Id = Model.Id })
-@Html.ActionLink("Delete", "Delete", new { Id = Model.Id })
+@Html.Partial("DetailsBar")
 
 <h1>Albums</h1>
-<table>
+<table class="striped responsive-table">
     <tr>
         <th>Title</th>
         <th>Year</th>
@@ -33,7 +32,7 @@
         <tr>
             <td>@album.Title</td>
             <td>@album.Year</td>
-            <td><a>@Html.ActionLink("Details", "Details", "Albums", new {Id = album.AuthorId}, null)</a></td>
+            <td><a>@Html.ActionButton("Details", "Details", "Albums", new {Id = album.Id})</a></td>
         </tr>
     }
 </table>

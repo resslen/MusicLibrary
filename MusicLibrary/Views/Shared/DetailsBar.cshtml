@@ -1,0 +1,8 @@
+﻿@using MusicLibrary.Helpers
+<div class="card">
+    <div class="card-content">
+        @Html.ActionButton("Back", "Index")
+        @Html.ActionButton("Edit", "Edit", new { Id = Model.Id })
+        @Html.ActionButton("Delete", "Delete", new { Id = Model.Id })
+    </div>
+</div>
