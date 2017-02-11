@@ -179,6 +179,7 @@
     <Content Include="Views\Albums\DetailsPartial.cshtml" />
     <Content Include="Views\Artists\DetailsPartial.cshtml" />
     <Content Include="Views\Artists\AlbumsPartial.cshtml" />
+    <Content Include="Views\Shared\AddBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

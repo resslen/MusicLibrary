@@ -23,7 +23,5 @@
             </div>
         </div>
     </div>
-    <input type="submit" name="delete" value="Add" class="btn" />
-    @(ViewBag.Message ?? "")
+    @Html.Partial("AddBar")
 }
-@Html.ActionLink("Back", "Index")

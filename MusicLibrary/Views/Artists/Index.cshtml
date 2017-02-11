@@ -14,9 +14,9 @@
         <tr>
             <td title="@artist.Description">@artist.Name</td>
             <td>@artist.AlbumCount</td>
-            <td>@Html.ActionLink("Details", "Details", new { Id = artist.Id })</td>
-            <td>@Html.ActionLink("Edit", "Edit", new { Id = artist.Id })</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { Id = artist.Id })</td>
+            <td>@Html.ActionButton("Details", "Details", new { Id = artist.Id })</td>
+            <td>@Html.ActionButton("Edit", "Edit", new { Id = artist.Id })</td>
+            <td>@Html.ActionButton("Delete", "Delete", new { Id = artist.Id })</td>
         </tr>
     }
 </table>
