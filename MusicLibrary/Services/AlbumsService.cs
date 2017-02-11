@@ -64,7 +64,9 @@ namespace MusicLibrary.Services
         public void DeleteById(int id)
         {
             var album = Find(id);
+            var artist = _context.Artists.Find(album.AuthorId);
             _context.Albums.Remove(album);
+            artist.AlbumCount -= 1;
             _context.SaveChanges();
         }
 
