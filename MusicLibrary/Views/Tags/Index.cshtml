@@ -15,11 +15,13 @@
     <tr>
         <th>Name @Html.SortButtons("name")</th>
         <th>Albums</th>
+        <th>Go to albums</th>
     </tr>
     @foreach (var tag in Model)
     {
         <tr>
             <td>@tag.Name</td>
+            <td>@tag.Count</td>
             <td>@Html.ActionButton("Albums", "Albums", new { Id = tag.Id })</td>
         </tr>
     }

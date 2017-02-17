@@ -139,6 +139,10 @@
     <Compile Include="Migrations\201702111647555_tags.Designer.cs">
       <DependentUpon>201702111647555_tags.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702171717552_tag-count.cs" />
+    <Compile Include="Migrations\201702171717552_tag-count.Designer.cs">
+      <DependentUpon>201702171717552_tag-count.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AddAlbumViewModel.cs" />
     <Compile Include="Models\AlbumListViewModel.cs" />
     <Compile Include="Models\AlbumViewModel.cs" />
@@ -218,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702111647555_tags.resx">
       <DependentUpon>201702111647555_tags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702171717552_tag-count.resx">
+      <DependentUpon>201702171717552_tag-count.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

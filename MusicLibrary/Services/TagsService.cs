@@ -33,50 +33,66 @@ namespace MusicLibrary.Services
 
         public void UpdateAlbumWithTags(Album album, string tags)
         {
-            string[] tagsRequest;
-            if (tags != null)
-            {
-                tagsRequest = tags.ToLower().Split(new string[] {" "}, StringSplitOptions.RemoveEmptyEntries);
-            }
-            else
-            {
-                tagsRequest = new string[0];
-            }
-            var tagsInDb = new List<Tag>();
-            var newTags = new List<Tag>();
+            var tagsRequest = SplitRequest(tags);
+            var notPresentInAlbum = NotPresentTags(tagsRequest, album);
+            var notInRequest = NotInRequestTags(tagsRequest, album);
 
-            // take tags in database to tagsInDb 
-            // and tags not in database to newTags
-            foreach (var tag in tagsRequest)
+            RemoveTags(notInRequest, album);
+            AddTags(notPresentInAlbum, album);
+        }
+
+        private void AddTags(IEnumerable<string> tags, Album album)
+        {
+            foreach (var name in tags)
             {
-                var tagInDb = _context.Tags.SingleOrDefault(x => x.Name == tag);
-                if (tagInDb != null)
+                var tag = _context.Tags.SingleOrDefault(x => x.Name == name);
+                if (tag != null)
                 {
-                    tagsInDb.Add(tagInDb);
+                    tag.Count += 1;
                 }
                 else
                 {
-                    newTags.Add(new Tag()
-                    {
-                        Name = tag
-                    });
+                    tag = new Tag(name);
+                }
+                album.Tags.Add(tag);
+            }
+        }
+
+        private void RemoveTags(IEnumerable<Tag> tags, Album album)
+        {
+            foreach (var tag in tags)
+            {
+                album.Tags.Remove(tag);
+                tag.Count -= 1;
+                if (tag.Count == 0)
+                {
+                    _context.Tags.Remove(tag);
                 }
             }
+        }
 
-            // add new tags to database
-            _context.Tags.AddRange(newTags);
+        private IEnumerable<string> NotPresentTags(IEnumerable<string> tagsRequest, Album album)
+        {
+            return tagsRequest
+                .Where(x => album.Tags.All(y => y.Name != x))
+                .ToList();
+        }
 
-            // set new tags for album
-            var albumTags = album.Tags;
-            albumTags.Clear();
-            foreach (var tag in newTags)
+        private IEnumerable<Tag> NotInRequestTags(IEnumerable<string> tagsRequest, Album album)
+        {
+            return album.Tags
+                .Where(x => tagsRequest.All(y => y != x.Name))
+                .ToList();
+        }
+
+        private List<string> SplitRequest(string request)
+        {
+            if (request != null)
             {
-                albumTags.Add(tag);
+                var tags = request.ToLower().Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                return new List<string>(tags);
             }
-            foreach (var tag in tagsInDb)
-            {
-                albumTags.Add(tag);
-            }
+            return new List<string>();
         }
 
         public void CleanTags()
